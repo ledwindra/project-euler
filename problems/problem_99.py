@@ -2,6 +2,8 @@ import requests
 from math import log
 
 def largest_exponential():
+    "Helpful resource: https://math.stackexchange.com/questions/8308/working-with-large-exponents/8310"
+    
     url = 'https://projecteuler.net/project/resources/p099_base_exp.txt'
     response = requests.get(url)
     n = n.split('\n')
