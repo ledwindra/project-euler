@@ -1,3 +1,5 @@
+![build](https://github.com/ledwindra/project-euler/workflows/build/badge.svg?branch=master)
+
 # About
 
 Hello world :earth_asia:! Are you into mathematics and computer programming? Then [<strong>`Project Euler`</strong>](https://projecteuler.net/about) is a good platform for you. They say the users are allowed to share and discuss the first 100 problems outside of their platform. So here I am. :sunglasses:
