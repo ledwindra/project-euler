@@ -1,11 +1,10 @@
 # About
 
-Hello world :earth_asia:! Are you into mathematics and computer programming? Then Project Euler is a good platform for you. Click [here](https://projecteuler.net/about) to see what is Project Euler. They say the users are allowed to share and discuss the first 100 problems outside of their platform.
-So here I am. :sunglasses:
+Hello world :earth_asia:! Are you into mathematics and computer programming? Then [<strong>`Project Euler`</strong>](https://projecteuler.net/about) is a good platform for you. They say the users are allowed to share and discuss the first 100 problems outside of their platform. So here I am. :sunglasses:
 
 # Run
 
-The `project_euler.py` file can be used as a module, which consists of the problems and answers. Below is the example when you do this on the console:
+As of now, I rely on [<strong>`Python (3.x)`</strong>](https://www.python.org/downloads/) to solve the problems. The <strong>`project_euler.py`</strong> file can be used as a module, which consists of the problems and answers. Below is the example when you do this on the console:
 
 ```python
 >>> from project_euler import ProjectEuler
@@ -16,10 +15,10 @@ The `project_euler.py` file can be used as a module, which consists of the probl
 4613732
 ```
 
-If instead you want to run the unit test (`test_project_euler.py`), you can just do the following:
+If instead you want to run the unit test, you can just run the <strong>`test_project_euler.py`</strong> file as follows:
 
 ```
-python3 test_project_euler.py
+python test_project_euler.py
 ```
 
 If passed, it will show the following result:
