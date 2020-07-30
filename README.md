@@ -9,8 +9,11 @@ The `project_euler.py` file can be used as a module, which consists of the probl
 
 ```python
 >>> from project_euler import ProjectEuler
->>> project_euler = ProjectEuler()
->>> project_euler.problem_one(1000)
+>>> project_euler = ProjectEuler() # assign object
+>>> project_euler.problem_one(1000) # solve problem one
+233168
+>>> project_euler.problem_two() # solve problem two
+4613732
 ```
 
 If instead you want to run the unit test (`test_project_euler.py`), you can just do the following:
@@ -22,9 +25,9 @@ python3 test_project_euler.py
 If passed, it will show the following result:
 
 ```
-.
+..
 ----------------------------------------------------------------------
-Ran 1 test in 0.001s
+Ran 2 tests in 0.001s
 
 OK
 ```
