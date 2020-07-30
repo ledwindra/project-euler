@@ -1,8 +1,8 @@
 import unittest
-from project_euler import ProjectEuler
+from project_euler import Problems
 
 class TestProblemOne(unittest.TestCase):
-    project_euler = ProjectEuler()
+    project_euler = Problems()
 
     def test_problem_one(self):
         answer = self.project_euler.problem_one(1000)

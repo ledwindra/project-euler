@@ -1,7 +1,7 @@
 import requests
 from math import log
 
-class ProjectEuler:
+class Problems:
 
     def problem_one(self, n):
         """
@@ -95,9 +95,7 @@ class ProjectEuler:
         Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
         """
         digit = str(digit)
-        four = []
-        for i in range(len(digit)):
-            four.append(digit[i : (i + 13)])
+        four = [digit[x : (x + 13)] for x in range(len(digit))]
         multiplier = []
         i = 0
         while i < len(four):
@@ -106,7 +104,6 @@ class ProjectEuler:
                 m *= int(j)
             multiplier.append(m)
             i += 1
-
         max_multiplier = max(multiplier)
         for i in range(len(four)):
             m = 1

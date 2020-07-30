@@ -19,8 +19,8 @@ Just enter <strong>`deactivate`</strong> when you want to exit from the virtual 
 As of now, I rely on [<strong>`Python (3.x)`</strong>](https://www.python.org/downloads/) to solve the problems. The <strong>`project_euler.py`</strong> file can be used as a module, which consists of the problems and answers. Below is the example when you do this on the console:
 
 ```python
->>> from project_euler import ProjectEuler
->>> project_euler = ProjectEuler() # assign object
+>>> from project_euler import Problems
+>>> project_euler = Problems() # assign object
 >>> project_euler.problem_one(1000) # solve problem one
 233168
 >>> project_euler.problem_two() # solve problem two
