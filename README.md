@@ -1,11 +1,21 @@
 ![build](https://github.com/ledwindra/project-euler/workflows/build/badge.svg?branch=master)
 
 # About
-
 Hello world :earth_asia:! Are you into mathematics and computer programming? Then [<strong>`Project Euler`</strong>](https://projecteuler.net/about) is a good platform for you. They say the users are allowed to share and discuss the first 100 problems outside of their platform. So here I am. :sunglasses:
 
-# Run
+# Virtual environment and requirements
+In some case, we need an external modules to solve the problems. To avoid messing up with your existing modules intalled in your machine, I would recommend using virtual environment before installing the requirements. Just do the following:
 
+```bash
+python3 -m venv .venv # install virtual environment
+source .venv/bin/activate # activate virtual environment
+pip install --upgrade pip # upgrade pip to its latest version
+pip install -r requirements.txt # install external modules
+```
+
+Just enter <strong>`deactivate`</strong> when you want to exit from the virtual environment. If otherwise you don't want to, just go ahead installing the requirements.
+
+# Run
 As of now, I rely on [<strong>`Python (3.x)`</strong>](https://www.python.org/downloads/) to solve the problems. The <strong>`project_euler.py`</strong> file can be used as a module, which consists of the problems and answers. Below is the example when you do this on the console:
 
 ```python
@@ -19,7 +29,7 @@ As of now, I rely on [<strong>`Python (3.x)`</strong>](https://www.python.org/do
 
 If instead you want to run the unit test, you can just run the <strong>`test_project_euler.py`</strong> file as follows:
 
-```
+```bash
 python test_project_euler.py
 ```
 

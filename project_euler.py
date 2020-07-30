@@ -1,3 +1,6 @@
+import requests
+from math import log
+
 class ProjectEuler:
 
     def problem_one(self, n):
@@ -62,4 +65,73 @@ class ProjectEuler:
         answer = [x for x in range(2, sqrt_n) if is_prime(x) == True and n % x == 0]
         answer = max(answer)
 
+        return answer
+    
+    def problem_eight(self, digit):
+        """
+        The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
+
+        73167176531330624919225119674426574742355349194934
+        96983520312774506326239578318016984801869478851843
+        85861560789112949495459501737958331952853208805511
+        12540698747158523863050715693290963295227443043557
+        66896648950445244523161731856403098711121722383113
+        62229893423380308135336276614282806444486645238749
+        30358907296290491560440772390713810515859307960866
+        70172427121883998797908792274921901699720888093776
+        65727333001053367881220235421809751254540594752243
+        52584907711670556013604839586446706324415722155397
+        53697817977846174064955149290862569321978468622482
+        83972241375657056057490261407972968652414535100474
+        82166370484403199890008895243450658541227588666881
+        16427171479924442928230863465674813919123162824586
+        17866458359124566529476545682848912883142607690042
+        24219022671055626321111109370544217506941658960408
+        07198403850962455444362981230987879927244284909188
+        84580156166097919133875499200524063689912560717606
+        05886116467109405077541002256983155200055935729725
+        71636269561882670428252483600823257530420752963450
+
+        Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+        """
+        digit = str(digit)
+        four = []
+        for i in range(len(digit)):
+            four.append(digit[i : (i + 13)])
+        multiplier = []
+        i = 0
+        while i < len(four):
+            m = 1
+            for j in four[i]:
+                m *= int(j)
+            multiplier.append(m)
+            i += 1
+
+        max_multiplier = max(multiplier)
+        for i in range(len(four)):
+            m = 1
+            for j in four[i]:
+                m *= int(j)
+                if m == max_multiplier:
+                    return max_multiplier
+
+    def problem_ninety_nine(self, url='https://projecteuler.net/project/resources/p099_base_exp.txt'):
+        """
+        Comparing two numbers written in index form like 211 and 37 is not difficult, as any calculator would confirm that 211 = 2048 < 37 = 2187.
+
+        However, confirming that 632382518061 > 519432525806 would be much more difficult, as both numbers contain over three million digits.
+
+        Using base_exp.txt (right click and 'Save Link/Target As...'), a 22K text file containing one thousand lines with a base/exponent pair on each line, determine which line number has the greatest numerical value.
+
+        NOTE: The first two lines in the file represent the numbers in the example given above.
+        """
+        # helpful resource: https://math.stackexchange.com/questions/8308/working-with-large-exponents/8310
+        response = requests.get(url)
+        n = response.text.split('\n')
+        n = [x.split(',') for x in n]
+        n = [[int(x[0]), int(x[1])] for x in n]
+        max_log = max([x[1] * log(x[0]) for x in n])
+        answer = n.index([x for x in n if x[1] * log(x[0]) == max_log][0])
+        answer += 1
+        
         return answer
