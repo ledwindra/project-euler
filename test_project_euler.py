@@ -29,6 +29,11 @@ class TestProblemOne(unittest.TestCase):
 
         self.assertEqual(answer, 5537376230)
 
+    def test_problem_twenty_two(self):
+        answer = self.project_euler.problem_twenty_two()
+
+        self.assertEqual(answer, 871198282)
+
     def test_problem_ninety_nine(self):
         answer = self.project_euler.problem_ninety_nine()
 

@@ -1,4 +1,6 @@
+import re
 import requests
+import string
 from math import log
 
 class Problems:
@@ -227,6 +229,31 @@ class Problems:
         digit = int(digit)
         
         return digit
+    
+    def problem_twenty_two(self, url='https://projecteuler.net/project/resources/p022_names.txt'):
+        """
+        Using names.txt (right click and 'Save Link/Target As...'), a 46K text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.
+
+        For example, when the list is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would obtain a score of 938 × 53 = 49714.
+
+        What is the total of all the name scores in the file?
+        """
+        res = requests.get(url)
+        alphabet = [x for x in string.ascii_uppercase]
+        alphabet = [(alphabet[x], alphabet[x].replace(alphabet[x], str(x+1))) for x in range(len(alphabet))]
+        alphabet = dict(alphabet)
+        names = res.text.split(',')
+        names = [re.sub(r'[^\w\s]','', x) for x in names]
+        names = sorted(names)
+        # convert alphabet to its numeric position for each name
+        scores = []
+        for name in names:
+            scores.append([int(alphabet[x]) for x in name])
+        # sum the score for each name
+        scores = [sum(x) * (scores.index(x) + 1) for x in scores]
+        answer = sum(scores)
+
+        return answer
 
     def problem_ninety_nine(self, url='https://projecteuler.net/project/resources/p099_base_exp.txt'):
         """
