@@ -287,6 +287,61 @@ class Problems:
 
         return fibonacci
 
+    def problem_forty_seven(self, i=0, n=4):
+        """
+        The first two consecutive numbers to have two distinct prime factors are:
+
+        14 = 2 × 7
+        15 = 3 × 5
+
+        The first three consecutive numbers to have three distinct prime factors are:
+
+        644 = 2² × 7 × 23
+        645 = 3 × 5 × 43
+        646 = 2 × 17 × 19.
+
+        Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
+        """
+        def is_prime(n):
+            # returns true if prime
+            sqrt_n = int(n ** 0.5)
+            for i in range(2, sqrt_n + 1):
+                if n % i == 0:
+                    return False
+            return True
+
+        def prime_factors(n, distinct_prime):
+            # count how many primes given n
+            primes = [x for x in range(2, int(n/2)+1) if n % x == 0 and is_prime(x) == True]
+            # check if total primes is equal to expected distict prime
+            if len(primes) == distinct_prime:
+                while n != 1:
+                    if n % primes[0] == 0:
+                        n /= primes[0]
+                    else:
+                        primes.pop(0)
+
+            # end result should return 1
+            return n
+        
+        consecutive = []
+        # as long as the length is not as expected
+        while len(consecutive) != n:
+            # check prime factor of n, append to list if it meets condition
+            if not is_prime(i) and prime_factors(i, n) == 1:
+                consecutive.append(i)
+                # if list has reached the expected length
+                # check the delta of its max and min
+                # if the delta doesn't equal n - 1, remove its first element
+                if len(consecutive) == n and abs(consecutive[0] - consecutive[-1]) != (n-1):
+                    consecutive.pop(0)
+            i += 1
+        
+        # the list should contain consecutive numbers
+        # the answer should return its first element
+        answer = consecutive[0]
+        return answer
+
     def problem_ninety_nine(self, url='https://projecteuler.net/project/resources/p099_base_exp.txt'):
         """
         Comparing two numbers written in index form like 211 and 37 is not difficult, as any calculator would confirm that 211 = 2048 < 37 = 2187.

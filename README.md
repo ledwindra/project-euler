@@ -3,6 +3,10 @@
 # About
 Hello world :earth_asia:! Are you into mathematics and computer programming? Then [<strong>`Project Euler`</strong>](https://projecteuler.net/about) is a good platform for you. They say the users are allowed to share and discuss the first 100 problems outside of their platform. So here I am. :sunglasses:
 
+As of August 1, 2020, I have solved 33 problems and I'm still enjoying it. :beers:
+
+![latest-progress](./img/latest-progress.png)
+
 # Virtual environment and requirements
 In some case, we need an external modules to solve the problems. To avoid messing up with your existing modules intalled in your machine, I would recommend using virtual environment before installing the requirements. Just do the following:
 
