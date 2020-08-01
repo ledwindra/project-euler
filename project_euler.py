@@ -1,3 +1,4 @@
+import itertools
 import re
 import requests
 import string
@@ -314,6 +315,51 @@ class Problems:
             p += 1
         max_value = max(dict(maximized).values())
         answer = int([x[0] for x in maximized if x[1] == max_value][0])
+
+        return answer
+
+    def problem_forty_three(self):
+        """
+        The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.
+
+        Let d1 be the 1st digit, d2 be the 2nd digit, and so on. In this way, we note the following:
+
+            d2d3d4=406 is divisible by 2
+            d3d4d5=063 is divisible by 3
+            d4d5d6=635 is divisible by 5
+            d5d6d7=357 is divisible by 7
+            d6d7d8=572 is divisible by 11
+            d7d8d9=728 is divisible by 13
+            d8d9d10=289 is divisible by 17
+
+        Find the sum of all 0 to 9 pandigital numbers with this property.
+        """
+        # find all possible numbers composed from 0 to 9, each must have 10 digits
+        digit = string.digits
+        permutation = list(itertools.permutations(digit, len(digit)))
+        def is_prime(n):
+            # returns True if prime and n > 1
+            if n > 1:
+                sqrt_n = int(n ** 0.5)
+                for i in range(2, sqrt_n + 1):
+                    if n % i == 0:
+                        return False
+                return True
+            return False
+
+        def pandigital_number(num):
+            # find the first 7 prime numbers
+            prime = [x for x in range(18) if is_prime(x) == True]
+            for i in range(1, 8):
+                meet_condition = int(num[i]+num[i+1]+num[i+2]) % prime[i-1] == 0
+                if not meet_condition:
+                    return False
+            return True
+
+        # use list comprehension to find pandigital number that meets the condition
+        # then sum all of them
+        answer = [x for x in permutation if pandigital_number(x) == True]
+        answer = sum([int(''.join(x)) for x in answer])
 
         return answer
     
