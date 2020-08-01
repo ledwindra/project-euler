@@ -39,6 +39,11 @@ class TestProblemOne(unittest.TestCase):
 
         self.assertEqual(answer, 4782)
 
+    def test_problem_forty_six(self):
+        answer = self.project_euler.problem_forty_six()
+
+        self.assertEqual(answer, 5777)
+
     def test_problem_forty_seven(self):
         answer = self.project_euler.problem_forty_seven()
 
