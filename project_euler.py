@@ -341,13 +341,11 @@ class Problems:
             return str_n
 
         truncate = []
-        i = 0
         n = 11
         while len(truncate) < 12:
             if is_prime(n):
                 if truncate_prime(n, 0) == '' and truncate_prime(n, -1) == '':
                     truncate.append(n)
-                    i += 1
             n += 1
 
         answer = sum(truncate)
