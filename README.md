@@ -3,7 +3,7 @@
 # About
 Hello world :earth_asia:! Are you into mathematics and computer programming? Then [<strong>`Project Euler`</strong>](https://projecteuler.net/about) is a good platform for you. They say the users are allowed to share and discuss the first 100 problems outside of their platform. So here I am. :sunglasses:
 
-As of August 1, 2020, I have solved 36 problems and I'm still enjoying it. :beers:
+As of August 2, 2020, I have solved 37 problems and I'm still enjoying it. :beers:
 
 ![latest-progress](./img/latest-progress.png)
 
