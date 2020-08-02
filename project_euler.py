@@ -342,7 +342,7 @@ class Problems:
 
         truncate = []
         n = 11
-        while len(truncate) < 12:
+        while len(truncate) != 11:
             if is_prime(n):
                 if truncate_prime(n, 0) == '' and truncate_prime(n, -1) == '':
                     truncate.append(n)
