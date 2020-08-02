@@ -316,7 +316,7 @@ class Problems:
         # a function that detects whether or not a number is palindromic
         is_palindrome = lambda x: str(x) == str(x)[::-1]
         # list comprehension to get palindromes and sum them up
-        palindrome = [x[0] for x in num if is_palindrome(x[0]) == True and is_palindrome(x[1]) == True]
+        palindrome = [x[0] for x in array if is_palindrome(x[0]) == True and is_palindrome(x[1]) == True]
         answer = sum(palindrome)
 
         return answer
