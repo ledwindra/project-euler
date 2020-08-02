@@ -303,7 +303,24 @@ class Problems:
         fibonacci = len(fibonacci[1:])
 
         return fibonacci
-    
+
+    def problem_thirty_six(self):
+        """
+        The decimal number, 585 = 10010010012 (binary), is palindromic in both
+        bases. Find the sum of all numbers, less than one million, which are
+        palindromic in base 10 and base 2. (Please note that the palindromic
+        number, in either base, may not include leading zeros.)
+        """
+        # make a tuple that consists of base-10 and base-2 numbers < 1 million
+        array = [(x, bin(x)[2:]) for x in range(1, 1000000)]
+        # a function that detects whether or not a number is palindromic
+        is_palindrome = lambda x: str(x) == str(x)[::-1]
+        # list comprehension to get palindromes and sum them up
+        palindrome = [x[0] for x in num if is_palindrome(x[0]) == True and is_palindrome(x[1]) == True]
+        answer = sum(palindrome)
+
+        return answer
+
     def problem_thirty_seven(self):
         """
         The number 3797 has an interesting property. Being prime itself, it is
