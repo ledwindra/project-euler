@@ -1,11 +1,11 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# This workflow will install Python dependencies and run tests with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
 name: build
 
 on:
   schedule:
-   - cron: "0 17 * * *"
+   - cron: "0 * * * *"
 
 jobs:
   build:
@@ -25,3 +25,12 @@ jobs:
     - name: Perform unit-test
       run: |
         python test_project_euler.py
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@main
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
