@@ -26,6 +26,8 @@ jobs:
         python test_project_euler.py
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git pull remote origin main
+        git config --global pull.ff only
+        git remote add origin https://github.com/ledwindra/project-euler.git
+        git pull -r origin main
         git diff-index --quiet HEAD ||  git commit -m "Made changes (if any)" -a
-        git push origin main
+        git push -u origin main
