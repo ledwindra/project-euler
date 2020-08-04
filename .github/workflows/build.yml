@@ -25,12 +25,10 @@ jobs:
     - name: Perform unit-test
       run: |
         python test_project_euler.py
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git diff-index --quiet HEAD ||  git commit -m "Add changes" -a
-    - name: Push changes
-      uses: ledwindra/project-euler@staging
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit and push changes (if any)
+    - uses: actions/checkout@v2
+    - run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git diff-index --quiet HEAD ||  git commit -m "Made changes (if any)" -a
+        git push
