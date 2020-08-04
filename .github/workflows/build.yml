@@ -27,6 +27,8 @@ jobs:
         python test_project_euler.py
     - name: Commit and push changes (if any)
     - uses: actions/checkout@v2
+      with:
+        ref: staging
     - run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
