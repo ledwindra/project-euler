@@ -31,6 +31,6 @@ jobs:
         git config --local user.name "GitHub Action"
         git diff-index --quiet HEAD ||  git commit -m "Add changes" -a
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@staging
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
